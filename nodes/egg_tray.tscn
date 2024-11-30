@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2a80u5tismjy"]
+
+[ext_resource type="PackedScene" uid="uid://couhhvej44s88" path="res://eggtray/4_trays_of_eggs_scaniverse.glb" id="1_sshe3"]
+[ext_resource type="Script" path="res://scripts/puttable.gd" id="1_xdrwv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jajrr"]
+size = Vector3(0.308655, 0.277405, 0.306152)
+
+[node name="egg_tray" type="RigidBody3D"]
+collision_mask = 7
+can_sleep = false
+script = ExtResource("1_xdrwv")
+capacity = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0170078, 0.161082, 0.00626602)
+shape = SubResource("BoxShape3D_jajrr")
+
+[node name="egg_tray" parent="." instance=ExtResource("1_sshe3")]

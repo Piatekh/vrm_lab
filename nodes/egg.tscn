@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs8vy11t28a56"]
+
+[ext_resource type="Script" path="res://scripts/egg.gd" id="1_ab2b6"]
+[ext_resource type="PackedScene" uid="uid://bj4c2oxxpplbl" path="res://egg/egg.glb" id="1_m0wuv"]
+[ext_resource type="PackedScene" uid="uid://dsu4p1oqlocu5" path="res://nodes/small_hen.tscn" id="2_05xdd"]
+[ext_resource type="Script" path="res://scripts/use_egg.gd" id="3_lhsd3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vwhs3"]
+radius = 0.0223469
+height = 0.0565878
+
+[node name="egg" type="RigidBody3D" node_paths=PackedStringArray("usable")]
+collision_mask = 7
+can_sleep = false
+script = ExtResource("1_ab2b6")
+small_hen = ExtResource("2_05xdd")
+usable = NodePath("Usable")
+
+[node name="egg" parent="." instance=ExtResource("1_m0wuv")]
+transform = Transform3D(0.999573, 0.0292126, 0, -0.0292126, 0.999573, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_vwhs3")
+
+[node name="Usable" type="Node" parent="."]
+script = ExtResource("3_lhsd3")

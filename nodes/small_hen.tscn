@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsu4p1oqlocu5"]
+
+[ext_resource type="Script" path="res://scripts/grabbable.gd" id="1_e7y7g"]
+[ext_resource type="PackedScene" uid="uid://idhwbl24wp87" path="res://baby_hen/chick_baby_chicken_bird.glb" id="1_rc7uk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27rrp"]
+size = Vector3(0.0787964, 0.0801392, 0.0569611)
+
+[node name="small_hen" type="RigidBody3D"]
+collision_mask = 7
+can_sleep = false
+script = ExtResource("1_e7y7g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190735, 0.0709534, 0.00623322)
+shape = SubResource("BoxShape3D_27rrp")
+
+[node name="small_hen" parent="." instance=ExtResource("1_rc7uk")]
+transform = Transform3D(-5.24521e-05, 0, 1, 0, 1, 0, -1, 0, -5.24521e-05, 0.0141544, 0.0314105, 0.00612432)
